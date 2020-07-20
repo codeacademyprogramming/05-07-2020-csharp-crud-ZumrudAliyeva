@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IEnumerable< AspNet_MVC_Crud.Models.Product>
+
+<h2>Index</h2>
+
+<div>
+
+    <button type="button" class="btn btn-outline-secondary">@Html.ActionLink("Add product", "Create")</button>
+
+    @using (Html.BeginForm("Index", "Shop", FormMethod.Get))
+    {
+    @Html.Label("Product name")
+<p>
+    @Html.TextBox("searching")
+</p>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(product.Name, "GetProduct", new { id = product.Id, @class = "custom-default" })</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price<span> $</span></td>
+                    <td>
+                        <button type="button" class="btn btn-warning text-white bg-gradient-warning">@Html.ActionLink("Edit", "Edit", new { id = product.Id })</button>
+                        <button type="button" class="btn btn-danger text-white bg-gradient-danger">@Html.ActionLink("Delete", "Delete", new { id = product.Id })</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

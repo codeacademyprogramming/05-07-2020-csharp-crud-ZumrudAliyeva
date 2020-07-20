@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+@model AspNet_MVC_Crud.Models.Product
+
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+    <h2>Delete product @Model.Name?</h2>
+        <p>The action cannot be undone.</p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-outline-secondary">@Html.ActionLink("Cancel", "Cancel")</button>
+        </div>
+    }
+</div>

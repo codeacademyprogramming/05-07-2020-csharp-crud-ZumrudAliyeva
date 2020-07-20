@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+@model AspNet_MVC_Crud.Models.Product
+
+<h2>Create</h2>
+
+<div>
+    <h4>Add new product</h4>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            @Html.ValidationSummary()
+            <div class="form-group">
+                @Html.LabelFor(x => x.Name, "Name", new { @class = "d-block" })
+                @Html.TextBoxFor(x => x.Name, new { @class = "d-block" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Description, "Description", new { @class = "d-block" })
+                @Html.TextBoxFor(x => x.Description, new { @class = "d-block" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Price, "Price, $ ", new { @class = "d-block" })
+                @Html.TextBoxFor(x => x.Price, new { @class = "d-block" })
+
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-outline-secondary bg-gradient-secondary">@Html.ActionLink("Cancel", "Cancel")</button>
+            </div>
+        </div>
+
+    }
+</div>

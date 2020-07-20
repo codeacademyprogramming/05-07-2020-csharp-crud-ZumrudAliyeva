@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "GetProduct";
+}
+
+@model AspNet_MVC_Crud.Models.Product
+
+<h2>GetProduct</h2>
+
+<div>
+    <h2>@Model.Name</h2>
+    <b>Description: </b>
+    <div>@Model.Description</div>
+    <b>Price:</b>
+    <div>@Model.Price, $<span class="glyphicon glyphicon-euro"></span></div>
+    <br />
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <router-link v-bind:to="'/'">@Html.ActionLink("Back to product list", "Index")</router-link>
+</div>
